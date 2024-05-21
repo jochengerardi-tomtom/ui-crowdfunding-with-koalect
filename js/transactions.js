@@ -6,6 +6,9 @@ async function transactionData(groupName) {
                                 '?key=AIzaSyAVzI5xq3pz2P-O1u6MUIK4ZJVvBQmedHQ');
     // wait until resolved                                
     const sheetJson =  await sheetData.json();
+    if (sheetJson.values === undefined) {
+        return [];
+    }
     return sheetJson.values;
 }
 
@@ -24,12 +27,14 @@ async function crowdfundingData(slug) {
               }
           }
       }`
+
     var dataQuery = JSON.stringify({ query: dataQueryStructure })
-    const response = await fetch('https://qav2.koalect.com/databus/graphql', {
+    const response = await fetch('https://v2.koalect.com/databus/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'KEY kreh5vnPdeH1vbxxksk7qQ'
+        // 'Authorization': 'KEY kreh5vnPdeH1vbxxksk7qQ'
+        'Authorization': 'KEY 9-bfzr4q0RvqGBfaEWA4pw'
       },
       body: dataQuery,
     });
@@ -41,7 +46,8 @@ async function crowdfundingData(slug) {
 async function fetchAllData() {
     const bedrijvenData = await transactionData("bedrijven");
     const personenData = await transactionData("personen");
-    const koalectData = await crowdfundingData("test-optin-sms-edge");
+    // const koalectData = await crowdfundingData("test-optin-sms-edge");
+    const koalectData = await crowdfundingData("chiro-lourdes-meisjes-bouwt");
     const newBedrijven = bedrijvenData.filter(item => validItem(item)).map(item => [item[0], item[1], item[2], "B"])
     const newPersonen = personenData.filter(item => validItem(item)).map(item => [item[0], item[1], item[2], "P"])
     return { 
