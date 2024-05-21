@@ -1,0 +1,214 @@
+body {
+  font-family: Montserrat;
+  font-size: 0.85em;
+  background: antiquewhite;
+  margin: 0;
+}
+
+h1,h2 {
+  font-family: Oswald;
+  font-size: 2em;
+}
+
+table thead {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+#cssportal-grid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1024px 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+#col1 {
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: antiquewhite;
+}
+#col2 {
+  grid-area: 1 / 2 / 2 / 3;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#col3 {
+  grid-area: 1 / 3 / 2 / 4;
+  background-color: antiquewhite;
+}
+
+#crowd-grid {
+  display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 500px;
+	gap: 0;
+	width: 100%;
+}
+#crowd-col1 {
+	grid-area: 1 / 1 / 2 / 2;
+  margin-right: 20px;
+}
+#crowd-col2 {
+	grid-area: 1 / 2 / 2 / 3;
+}
+
+/* Apply a media query for smaller screens */
+@media (max-width: 768px) {
+  #cssportal-grid {
+    grid-template-columns: 1fr;
+    /* padding: 0 10px; Adjust padding for smaller screens */
+    gap: 0;
+  }
+
+  #col1{
+    display: none;
+  }
+
+  #crowd-grid {
+    display: grid;
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-template-columns: 1fr;
+    gap: 0;
+    width: 100%;
+  }
+  #crowd-col1 {
+	  grid-area: 1/1/2/2;
+  }
+  #crowd-col2 {
+    grid-area: 2/1/3/2;
+  }
+
+}
+
+/* styles.css */
+.progress-bar {
+  width: 100%;
+  background-color: antiquewhite;
+  height: 30px;
+  margin-top: 20px;
+  position: relative;
+  
+}
+
+.progress {
+  background-color: #ff533d;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Adjust as needed to center the text */
+  transform: translateX(-50%);
+  line-height: 30px; /* Ensures the text is vertically centered */
+}
+
+.forward-button-container {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.forward-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff533d;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.25em;
+  align-self: right;
+}
+
+.forward-button i {
+  width: 20px;
+}
+
+.forward-button:hover {
+  background-color: #d7220a;
+}
+.steun-girl-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Position the text overlay */
+.steun-girl-image-overlay {
+  position: absolute;
+  top: 182px; /* Adjust the top position as needed */
+  left: 396px; /* Adjust the left position as needed */
+  /* color: white; Text color */
+  font-weight: bold;
+  font-size: 2.5em; /* Text font size */
+  /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background color */
+  padding: 10px; /* Padding around the text */
+  z-index: 1; /* Ensure the text appears on top of the image */
+}
+
+#steun-girl-table, #total-data-table, #data-table {
+  width: 100%; 
+  border-spacing: 0;
+}
+
+#steun-girl-table td {
+  padding-left: 10px; /* Add this line to remove any padding inside the cells */
+}
+
+#steun-girl-table-row1 {
+  font-family: Oswald;
+  font-size: 4em;
+  text-align: left;
+  background-color: antiquewhite;
+  padding: 20px; /* Add this line to remove any padding inside the cells */
+}
+
+#steun-girl-table-row2 {
+  font-size: 1.15em;
+  font-weight: bold;
+  text-align: left;
+  background-color: antiquewhite;
+}
+
+i {
+  width: 15px
+}
+
+.fa-euro-sign {
+  width: 12px
+}
+
+#doe-een-gift-image {
+  width: 200px;
+}
+
+#steun-girl-running-image {
+  width: 500px;
+}
+
+blockquote {
+  font-style: italic;
+  color: #333; /* Optional: change the color to suit your design */
+  /* Other styling properties as needed */
+  background-color: antiquewhite;
+}
+
+.circle-label {
+  display: inline-block;
+  padding: 5px;
+  /* border: 2px solid #333; */
+  border-radius: 50%; /* Creates a circular shape */
+  background-color: #ff533d;
+  color: white;
+}
+
+.circle-label label {
+  display: block; /* Ensures the label text is on a new line */
+  text-align: center; /* Centers the text horizontally */
+}
