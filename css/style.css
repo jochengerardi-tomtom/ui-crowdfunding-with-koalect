@@ -51,6 +51,7 @@ table thead {
 }
 #crowd-col2 {
 	grid-area: 1 / 2 / 2 / 3;
+  padding-right: 15px;
 }
 
 /* Apply a media query for smaller screens */
