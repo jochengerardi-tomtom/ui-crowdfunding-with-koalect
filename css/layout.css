@@ -181,19 +181,6 @@ td {
   display: inline-block;
 }
 
-/* Position the text overlay */
-.steun-girl-image-overlay {
-  position: absolute;
-  top: 182px; /* Adjust the top position as needed */
-  left: 396px; /* Adjust the left position as needed */
-  /* color: white; Text color */
-  font-weight: bold;
-  font-size: 2.5em; /* Text font size */
-  /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background color */
-  padding: 10px; /* Padding around the text */
-  z-index: 1; /* Ensure the text appears on top of the image */
-}
-
 #steun-girl-table,
 #total-data-table,
 #data-table {
