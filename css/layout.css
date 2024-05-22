@@ -34,6 +34,10 @@ h3 {
   line-height: 1.25;
 }
 
+th {
+  font-weight: 700;
+}
+
 th, td {
   padding: 2px;
 }
@@ -46,11 +50,6 @@ th, td {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-table thead {
-  text-align: left;
-  text-transform: uppercase;
 }
 
 td {
