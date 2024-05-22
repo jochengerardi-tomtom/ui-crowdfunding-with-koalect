@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiro Lourdes - Crowdfunding</title>
+  <script src="./js/transactions.js" type="module"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Oswald:600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div id="cssportal-grid">
+    <div id="col1"></div>
+    <div id="col2">      
+      <img src="images/steun-girl-running-with-title.png" width="1005px"/>
+      <h2>Donaties overzicht</h2>
+      <table id="steun-girl-table">
+        <tbody>
+          <!-- Data will be inserted here -->
+        </tbody>
+      </table>  
+      <br> 
+      <table id="total-data-table">
+        <thead>
+          <tr>
+            <th>Wie</th>
+            <th>Bedrag</th>
+            <th>Donaties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be inserted here -->
+        </tbody>
+      </table> 
+      <br> 
+      <h2>Deze mensen gaven al iets *</h2>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Wie</th>
+            <th>Bedrag</th>
+            <th>Datum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be inserted here -->
+        </tbody>
+      </table>  
+      <br>
+      * deze lijst wordt elke avond aangepast          
+      <div class="a2a_kit a2a_kit_size_24 a2a_default_style" data-a2a-url="https://crowdfunding.chirolourdes.be" data-a2a-title="Chiro Lourdes Crowdfunding">
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_email"></a>
+        <a class="a2a_button_sms"></a>
+        <a class="a2a_button_whatsapp"></a>
+        <a class="a2a_button_facebook_messenger"></a>
+        <a class="a2a_button_x"></a>
+      </div>
+      <script>
+        // add2anything scripting
+        var a2a_config = a2a_config || {};
+        a2a_config.templates = a2a_config.templates || {};     
+        a2a_config.templates.email = {
+            subject: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title}",
+            body: "Hier is de link:\n${link}",
+        };
+        a2a_config.templates.facebook = {
+            app_id: "5303202981",
+            redirect_uri: "https://static.addtoany.com/menu/thanks.html",
+        };
+        a2a_config.templates.sms = {
+            body: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title} ${link}",
+        };
+        a2a_config.templates.whatsapp = {
+            text: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${link}",
+        };
+        a2a_config.templates.x = {
+            text: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title} ${link}",
+        };
+      </script>
+      <script async src="https://static.addtoany.com/menu/page.js"></script>              
+    </div>
+    <div id="col3"></div>
+  </div>
+  <script type="module">
+    import { fetchAllData, totalAmountCollected } from './js/transactions.js';
+
+    const totalCrowdfundingGoal = 50000;
+    const allData = await fetchAllData();
+    // console.log(allData);
+
+    // display all donations
+    const tableBody = document.querySelector('#data-table tbody');
+    allData.merged.forEach(donatie => {
+      const row = tableBody.insertRow();
+      if (donatie[3] === "P") {
+        row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
+      } else {
+        row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
+      }
+      row.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + donatie[1];
+      row.insertCell(2).textContent = donatie[2];
+    }); 
+    
+    const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
+    const totalPersonen = allData.crowdfunding.contributionsCount;
+    const totalAmountPersonen = allData.crowdfunding.currentAmount / 100;
+    const totalProgress = Math.round((totalAmountBedrijven + totalAmountPersonen) / totalCrowdfundingGoal * 100);
+
+    // visualise 
+    const steunGirlTableBody = document.querySelector('#steun-girl-table tbody');
+    const steunRow1 = steunGirlTableBody.insertRow();
+    steunRow1.insertCell(0).innerHTML = "€" + (totalAmountBedrijven + totalAmountPersonen);
+    steunRow1.insertCell(1).innerHTML = totalPersonen + totalBedrijven;
+    steunRow1.insertCell(2).innerHTML = totalProgress + "%";
+    steunRow1.id = "steun-girl-table-row1";
+    const steunRow2 = steunGirlTableBody.insertRow();
+    steunRow2.insertCell(0).innerHTML = "ingezameld van de €50000";
+    steunRow2.insertCell(1).innerHTML = "donateurs";
+    steunRow2.insertCell(2).innerHTML = "al opgehaald";
+    steunRow2.id = "steun-girl-table-row2";
+
+    const totalTableBody = document.querySelector('#total-data-table tbody');
+    const row1 = totalTableBody.insertRow();
+    row1.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> Personen';
+    row1.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + totalAmountPersonen;
+    row1.insertCell(2).textContent = totalPersonen;
+    const row2 = totalTableBody.insertRow();
+    row2.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> Bedrijven';
+    row2.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + totalAmountBedrijven;
+    row2.insertCell(2).textContent = totalBedrijven;
+
+    // progress
+    const progress = document.querySelector('.progress');
+    const progressText = document.querySelector('.progress-text');
+    const imageOverlay = document.querySelector('.steun-girl-image-overlay');
+    if (totalProgress > 100) {
+      progress.style.width = '100%';
+      progressText.innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen - 50000)  + " extra. Waaw!"
+      progressText.style.color = 'white';
+      // progressText.style.textWeight = 'bold';
+      progressText.style.setProperty("font-weight", "bold");
+    } else {
+      progress.style.width = totalProgress + '%';
+      progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen)  + " ingezameld!"
+    }
+    imageOverlay.innerHTML = totalProgress + '%';  
+  </script>
+
+</body>
+</html>
