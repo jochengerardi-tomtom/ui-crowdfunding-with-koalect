@@ -43,7 +43,7 @@
 			<p class="max-w-[876px] mb-8 md:text-center">We groeien jaar na jaar. Van 70 leden in het begin tot over de 200 nu. Onze pinkels, speelclubs, kwiks, tippers, tip-10’s en aspi’s verdienen hun plekje. Help jij ze mee? Doe nu je gift en draag letterlijk je steentje bij.</p>
 			
 			<div class="flex flex-col md:grid md:grid-cols-2 grid-rows-3 gap-4 md:gap-6 w-full">
-				<div class="flex flex-col gap-4 w-full col-span-1 md:row-span-3 bg-[#CBEAF4] rounded-[20px] p-5 sm:p-8">
+				<div class="max-md:hidden flex flex-col gap-4 w-full col-span-1 md:row-span-3 bg-[#CBEAF4] rounded-[20px] p-5 sm:p-8">
 					<h3 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Donaties</span><br> in de Spotlights*</h3>
 					
 					<div class="overflow-x-scroll max-h-[610px]">
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 
-				<div class="flex flex-col justify-between gap-4 col-span-1 row-span-1 bg-[#750201] rounded-[20px] p-5 md:p-8">
+				<div class="max-md:hidden flex flex-col justify-between gap-4 col-span-1 row-span-1 bg-[#750201] rounded-[20px] p-5 md:p-8">
 					<h3 class="text-white text-4xl"><span class="text-[#CF4D4C]">Algemeen</span><br> overzicht</h3>
 					<div class="overflow-x-scroll">
 						<table id="total-data-table" class="table-auto">
@@ -120,6 +120,7 @@
 			</div>
 		</div>
 
+		<!-- DIT IS CHIRO LOURDES -->
 		<div class="max-w-[768px] mx-auto py-10 md:py-16">
 			<div class="flex flex-col gap-4">
 				<h2 class="text-4xl">Dit is Chiro Lourdes</h2>
@@ -153,6 +154,47 @@
 					<blockquote>
 						<mark>Ria is in mei dit jaar 80 jaar. Ze zegt altijd ‘als ik de Lotto win, geef ik jullie lokalen’, Hoe schoon zou het zijn als wij haar dat kunnen geven?</mark>
 					</blockquote>
+				</div>
+			</div>
+		</div>
+
+		<!-- Only on mobile -->
+		<div class="md:hidden py-10">
+			<div class="flex flex-col gap-4 w-full col-span-1 bg-[#CBEAF4] rounded-[20px] p-5 sm:p-8 mb-4">
+				<h3 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Donaties</span><br> in de Spotlights*</h3>
+				
+				<div class="overflow-x-scroll max-h-[610px]">
+					<table id="data-table">
+						<thead class="sticky top-0 bg-[#CBEAF4]">
+							<tr class="text-[#6DB9D1]">
+								<th>Wie</th>
+								<th>Bedrag</th>
+								<th>Datum</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Data will be inserted here -->
+						</tbody>
+					</table>  
+				</div>
+	
+				<span class="text-[#6DB9D1]">* Deze lijst wordt elke avond aangepast</span>
+			</div>
+			<div class="flex flex-col justify-between gap-4 col-span-1 row-span-1 bg-[#750201] rounded-[20px] p-5">
+				<h3 class="text-white text-4xl"><span class="text-[#CF4D4C]">Algemeen</span><br> overzicht</h3>
+				<div class="overflow-x-scroll">
+					<table id="total-data-table" class="table-auto">
+						<thead class="text-[#CF4D4C] capitalize">
+							<tr>
+								<th>Wie</th>
+								<th>Bedrag</th>
+								<th>Donaties</th>
+							</tr>
+						</thead>
+						<tbody class="text-white">
+							<!-- Data will be inserted here -->
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -213,17 +255,17 @@
 		// console.log(allData);
 
 		// display all donations
-		const tableBody = document.querySelector('#data-table tbody');
-		allData.merged.forEach(donatie => {
-			const row = tableBody.insertRow();
+		const tableBodies = document.querySelectorAll('#data-table tbody');
+		allData.merged.forEach((donatie, index) => {
+			const row = tableBodies[index % tableBodies.length].insertRow();
 			if (donatie[3] === "P") {
-				row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
+			row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
 			} else {
-				row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
+			row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
 			}
 			row.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + donatie[1];
 			row.insertCell(2).textContent = donatie[2];
-		}); 
+		});
 		
 		const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
 		const totalPersonen = allData.crowdfunding.contributionsCount;
@@ -236,17 +278,20 @@
 		document.querySelector("#steun-girl-cell-2").innerHTML = totalPersonen + totalBedrijven;
 		document.querySelector("#steun-girl-cell-3").innerHTML = totalProgress + "%";
 
-		const totalTableBody = document.querySelector('#total-data-table tbody');
+		const totalTableBodies = document.querySelectorAll('#total-data-table tbody');
 		// Create a function to create a table row with cells
-		function createRow(iconClass, title, amount, count) {
-			const row = totalTableBody.insertRow();
+		function createRow(iconClass, title, amount, count, index) {
+			const tableBody = totalTableBodies[index];
+			const row = tableBody.insertRow();
 			row.insertCell(0).innerHTML = `<i class="fa-solid ${iconClass}"></i> ${title}`;
 			row.insertCell(1).innerHTML = `<i class="fa-solid fa-euro-sign"></i> ${amount}`;
 			row.insertCell(2).textContent = count;
 			return row;
 		}
-		createRow('fa-person', 'Personen', totalAmountPersonen, totalPersonen);
-		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven);
+		createRow('fa-person', 'Personen', totalAmountPersonen, totalPersonen, 0);
+		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven, 0);
+		createRow('fa-person', 'Personen', totalAmountPersonen, totalPersonen, 1);
+		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven, 1);
 
 		// progress
 		const progress = document.querySelector('.progress');
@@ -256,8 +301,6 @@
 			progress.style.width = '100%';
 			progressText.innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen - 50000)  + " extra. Waaw!"
 			progressText.style.color = 'white';
-			// progressText.style.textWeight = 'bold';
-			progressText.style.setProperty("font-weight", "bold");
 		} else {
 			progress.style.width = totalProgress + '%';
 			progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen)  + " ingezameld!"
