@@ -252,20 +252,21 @@
 
 		const totalCrowdfundingGoal = 50000;
 		const allData = await fetchAllData();
-		// console.log(allData);
-
 		// display all donations
 		const tableBodies = document.querySelectorAll('#data-table tbody');
-		allData.merged.forEach((donatie, index) => {
-			const row = tableBodies[index % tableBodies.length].insertRow();
+		allData.merged.forEach(donatie => {
+			tableBodies.forEach(tableBody => { createDonationRow(donatie, tableBody) });
+		});
+		function createDonationRow(donatie, tableBody) {
+			const row = tableBody.insertRow();
 			if (donatie[3] === "P") {
-			row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
+				row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
 			} else {
-			row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
+				row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
 			}
 			row.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + donatie[1];
 			row.insertCell(2).textContent = donatie[2];
-		});
+		}
 		
 		const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
 		const totalPersonen = allData.crowdfunding.contributionsCount;
