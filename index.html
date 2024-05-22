@@ -42,99 +42,80 @@
 			<h2 class="md:text-center text-4xl">Doe nu mee met de crowdfunding</h2>
 			<p class="max-w-[876px] mb-8 md:text-center">We groeien jaar na jaar. Van 70 leden in het begin tot over de 200 nu. Onze pinkels, speelclubs, kwiks, tippers, tip-10’s en aspi’s verdienen hun plekje. Help jij ze mee? Doe nu je gift en draag letterlijk je steentje bij.</p>
 			
-			<div class="flex flex-col md:grid md:grid-cols-2 grid-rows-3 gap-4 md:gap-6">
-				<div class="col-span-1 md:row-span-3 bg-[#FAEAD7] rounded-[20px] overflow-hidden">
-					<div class="p-8">
-						<table id="steun-girl-table" class="table-auto">
+			<div class="flex flex-col md:grid md:grid-cols-2 grid-rows-3 gap-4 md:gap-6 w-full">
+				<div class="flex flex-col gap-4 w-full col-span-1 md:row-span-3 bg-[#CBEAF4] rounded-[20px] p-8">
+					<h3 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Donaties</span><br> in de Spotlights*</h3>
+					
+					<div class="overflow-x-scroll">
+						<table id="data-table">
+							<thead>
+								<tr>
+									<th>Wie</th>
+									<th>Bedrag</th>
+									<th>Datum</th>
+								</tr>
+							</thead>
 							<tbody>
 								<!-- Data will be inserted here -->
 							</tbody>
 						</table>  
-
-						<div class="gift-options">
-							<p>Help ons starten met de bouw. Elke gift is waardevol. Bedankt.</p>
-							<table id="doe-een-gift-table" class="table-auto">
-								<tbody>
-									<tr>
-										<td>
-											<div class="circle-label">
-												<label>€60</label>
-											</div>
-										</td>
-										<td>
-											en je schenkt een bouwsteen (€33 na belastingaftrek)
-												<!-- <li>Geef <strong>€100</strong> dan krijgt je naam een plekje in het nieuw gebouw (€100 na belastingaftrek)</li>
-												<li>Geef <strong>€250</strong> en krijg een Ria-cake aan huis geleverd (€137,5 na belastingaftrek) </li>
-											</ul> -->
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="circle-label">
-												<label>€100</label>
-											</div>
-										</td>
-										<td>
-											dan krijgt je naam een plekje in het nieuw gebouw (€55 na belastingaftrek)
-										</td>
-									</tr>     
-									<tr>
-										<td>
-											<div class="circle-label">
-												<label>€250</label>
-											</div>
-										</td>
-										<td>
-											en krijg een Ria-cake aan huis geleverd (€137,5 na belastingaftrek)
-										</td>
-									</tr>                             
-								</tbody>
-							</table>  
-							<div class="progress-bar">
-								<div class="progress"></div>
-								<div class="progress-text"></div>            
-							</div>
-							<br>
-							<div class="forward-button-container">
-								<a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="forward-button"><i class="fa-solid fa-hand-holding-heart"></i> Doneer Nu</a>
-							</div>                          
-
-						</div>
 					</div>
-					<img src="./images/chiro-sfeer.jpeg" alt="sfeer foto">
+
+					<span class="text-[#6DB9D1]">* Deze lijst wordt elke avond aangepast</span>
+				</div>
+
+				<div class="col-span-1 md:row-span-2 bg-[#F9F1E7] rounded-[20px] overflow-hidden">
+					<div class="flex flex-col gap-4 items-start p-8 h-full">
+						<div class="flex flex-wrap justify-between gap-4 mb-auto" id="steun-girl-table">
+							<div class="steun-girl-number">
+								<div class="steun-girl-cell" id="steun-girl-cell-1">€0</div>
+								<p class="steun-girl-text">ingezameld van de €50.000</p>
+							</div>
+
+							<div class="steun-girl-number">
+								<div class="steun-girl-cell" id="steun-girl-cell-2">0</div>
+								<p class="steun-girl-text">donateurs</p>
+							</div>
+
+							<div class="steun-girl-number mb-auto">
+								<div class="steun-girl-cell" id="steun-girl-cell-3">0%</div>
+								<p class="steun-girl-text">al opgehaald</p>
+							</div>
+						</div>
+						
+						<p>Help ons starten met de bouw. Elke gift is waardevol. Bedankt.</p>
+						
+						<ul id="doe-een-gift-table" class="flex flex-col gap-1">
+							<li><span class="circle-label">€60</span> en je schenkt een bouwsteen (€33 na belastingaftrek)</li>
+							<li><span class="circle-label">€100</span> dan krijgt je naam een plekje in het nieuw gebouw (€55 na belastingaftrek)</li>
+							<li><span class="circle-label">€250</span> en krijg een Ria-cake aan huis geleverd (€137,5 na belastingaftrek)</li>
+						</ul>
+
+						<div class="progress-bar">
+							<div class="progress"></div>
+							<div class="progress-text"></div>            
+						</div>
+
+						<a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="button"><i class="fa-solid fa-hand-holding-heart"></i> Doneer Nu</a>
+					</div>
 				</div>
 
 				<div class="flex flex-col justify-between gap-4 col-span-1 row-span-1 bg-[#750201] rounded-[20px] p-8">
 					<h3 class="text-white text-4xl"><span class="text-[#CF4D4C]">Algemeen</span><br> overzicht</h3>
-					<table id="total-data-table" class="table-auto">
-						<thead>
-							<tr>
-								<th>Wie</th>
-								<th>Bedrag</th>
-								<th>Donaties</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- Data will be inserted here -->
-						</tbody>
-					</table> 
-				</div>
-
-				<div class="flex flex-col justify-between gap-4 col-span-1 row-span-2 bg-[#CBEAF4] rounded-[20px] p-8">
-					<h3 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Donaties</span><br> in de Spotlights</h3>
-					
-					<table id="data-table" class="table-auto">
-						<thead>
-							<tr>
-								<th>Wie</th>
-								<th>Bedrag</th>
-								<th>Datum</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- Data will be inserted here -->
-						</tbody>
-					</table>  
+					<div class="overflow-x-scroll">
+						<table id="total-data-table" class="table-auto">
+							<thead class="text-[#CF4D4C] capitalize">
+								<tr>
+									<th>Wie</th>
+									<th>Bedrag</th>
+									<th>Donaties</th>
+								</tr>
+							</thead>
+							<tbody class="text-white">
+								<!-- Data will be inserted here -->
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -250,27 +231,22 @@
 		const totalProgress = Math.round((totalAmountBedrijven + totalAmountPersonen) / totalCrowdfundingGoal * 100);
 
 		// visualise 
-		const steunGirlTableBody = document.querySelector('#steun-girl-table tbody');
-		const steunRow1 = steunGirlTableBody.insertRow();
-		steunRow1.insertCell(0).innerHTML = "€" + (totalAmountBedrijven + totalAmountPersonen);
-		steunRow1.insertCell(1).innerHTML = totalPersonen + totalBedrijven;
-		steunRow1.insertCell(2).innerHTML = totalProgress + "%";
-		steunRow1.id = "steun-girl-table-row1";
-		const steunRow2 = steunGirlTableBody.insertRow();
-		steunRow2.insertCell(0).innerHTML = "ingezameld van de €50000";
-		steunRow2.insertCell(1).innerHTML = "donateurs";
-		steunRow2.insertCell(2).innerHTML = "al opgehaald";
-		steunRow2.id = "steun-girl-table-row2";
+		const steunGirlTableBody = document.querySelector('#steun-girl-table');
+		document.querySelector("#steun-girl-cell-1").innerHTML = "€" + (totalAmountBedrijven + totalAmountPersonen);
+		document.querySelector("#steun-girl-cell-2").innerHTML = totalPersonen + totalBedrijven;
+		document.querySelector("#steun-girl-cell-3").innerHTML = totalProgress + "%";
 
 		const totalTableBody = document.querySelector('#total-data-table tbody');
-		const row1 = totalTableBody.insertRow();
-		row1.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> Personen';
-		row1.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + totalAmountPersonen;
-		row1.insertCell(2).textContent = totalPersonen;
-		const row2 = totalTableBody.insertRow();
-		row2.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> Bedrijven';
-		row2.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + totalAmountBedrijven;
-		row2.insertCell(2).textContent = totalBedrijven;
+		// Create a function to create a table row with cells
+		function createRow(iconClass, title, amount, count) {
+			const row = totalTableBody.insertRow();
+			row.insertCell(0).innerHTML = `<i class="fa-solid ${iconClass}"></i> ${title}`;
+			row.insertCell(1).innerHTML = `<i class="fa-solid fa-euro-sign"></i> ${amount}`;
+			row.insertCell(2).textContent = count;
+			return row;
+		}
+		createRow('fa-person', 'Personen', totalAmountPersonen, totalPersonen);
+		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven);
 
 		// progress
 		const progress = document.querySelector('.progress');
