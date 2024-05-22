@@ -62,6 +62,7 @@
 					</div>
 
 					<span class="text-[#6DB9D1]">* Deze lijst wordt elke avond aangepast</span>
+					<a href="all-donations.html">** bekijk alle donaties</a>
 				</div>
 
 				<div class="col-span-1 md:row-span-2 bg-[#F9F1E7] rounded-[20px] overflow-hidden">
@@ -210,11 +211,12 @@
 
 		const totalCrowdfundingGoal = 50000;
 		const allData = await fetchAllData();
-		// console.log(allData);
 
-		// display all donations
+		// display last 15 donations
+		const maxRows = 15;
 		const tableBody = document.querySelector('#data-table tbody');
-		allData.merged.forEach(donatie => {
+		for (var i = 0; i <= maxRows && i < allData.merged.length; i++) {
+			const donatie = allData.merged[i];
 			const row = tableBody.insertRow();
 			if (donatie[3] === "P") {
 				row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
@@ -223,7 +225,7 @@
 			}
 			row.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + donatie[1];
 			row.insertCell(2).textContent = donatie[2];
-		}); 
+		}
 		
 		const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
 		const totalPersonen = allData.crowdfunding.contributionsCount;
