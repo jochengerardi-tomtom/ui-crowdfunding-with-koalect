@@ -1,257 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chiro Lourdes - Crowdfunding</title>
-  <script src="./js/transactions.js" type="module"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png">  
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Oswald:600,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chiro Lourdes - Crowdfunding</title>
+	<script src="./js/transactions.js" type="module"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">  
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Oswald:600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-  <div id="cssportal-grid">
-    <div id="col1"></div>
-    <div id="col2">      
-      <h1>ONS CHIRO LOKAAL IS UITGESPEELD, MAAR WIJ NOG LANG NIET!</h1>
-      <div id="crowd-grid">
-        <div id="crowd-col1">
+	<!-- NAVIGATION -->
+	<nav class="flex justify-between gap-6 items-center py-4 max-w-[1280px] mx-auto px-4">
+		<div class="flex items-center gap-2">
+			<img class="w-20 h-20" src="./images/chiro-lourdes-bouwt-logo.png" alt="logo">
+			<p class="max-md:hidden uppercase font-bold">Chiro Lourdes</p>
+		</div>
+		<a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="button"><i class="fa-solid fa-hand-holding-heart"></i>Doe een gift</a>
+	</nav>
 
-          <p>Daarom vragen wij jouw hulp. Omdat we nieuwe lokalen nodig hebben. Om elk kind veilig te laten spelen, te laten groeien en om vrienden voor het leven te maken.                
-          </p>
-          <h2>Doe mee met de crowdfunding</h2>
-          <!-- <h3>DOE EEN GIFT</h3>  -->
-          <div class="forward-button-container">
-            <a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="forward-button"><i class="fa-solid fa-hand-holding-heart"></i> DOE EEN GIFT</a>
-          </div>          
-          <div class="steun-girl-image-container">
-            <img class="steun-girl-image" src="images/steun-girl-pointing.png"/>
-            <div class="steun-girl-image-overlay">&nbsp;0%</div>
-          </div>
-        </div>
-        <div id="crowd-col2">
-          <br>
-          <table id="steun-girl-table">
-            <tbody>
-              <!-- Data will be inserted here -->
-            </tbody>
-          </table>  
-          <div class="gift-options">
-            <p>Help ons starten met de bouw. Elke gift is waardevol. Bedankt.</p>
-            <table id="doe-een-gift-table">
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="circle-label">
-                      <label>€60</label>
-                    </div>
-                  </td>
-                  <td>
-                    en je schenkt een bouwsteen (€33 na belastingaftrek)
-                      <!-- <li>Geef <strong>€100</strong> dan krijgt je naam een plekje in het nieuw gebouw (€100 na belastingaftrek)</li>
-                      <li>Geef <strong>€250</strong> en krijg een Ria-cake aan huis geleverd (€137,5 na belastingaftrek) </li>
-                    </ul> -->
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="circle-label">
-                      <label>€100</label>
-                    </div>
-                  </td>
-                  <td>
-                    dan krijgt je naam een plekje in het nieuw gebouw (€55 na belastingaftrek)
-                  </td>
-                </tr>     
-                <tr>
-                  <td>
-                    <div class="circle-label">
-                      <label>€250</label>
-                    </div>
-                  </td>
-                  <td>
-                    en krijg een Ria-cake aan huis geleverd (€137,5 na belastingaftrek)
-                  </td>
-                </tr>                             
-              </tbody>
-            </table>  
-            <div class="progress-bar">
-              <div class="progress"></div>
-              <div class="progress-text"></div>            
-            </div>
-            <br>
-            <div class="forward-button-container">
-              <a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="forward-button"><i class="fa-solid fa-hand-holding-heart"></i> Doneer Nu</a>
-            </div>                          
+	<!-- HERO -->
+	<header class="grid md:grid-cols-2 items-center py-10 md:py-16 gap-4 sm:gap-8 max-w-[1280px] mx-auto px-4 sm:px-10">
+		<div class="flex flex-col gap-4 items-start">
+			<h1 class="text-5xl">Ons Chiro lokaal is uitgespeeld,<br>maar wij nog lang niet!</h1>
+			<p>Daarom vragen wij jouw hulp. Omdat we nieuwe lokalen nodig hebben. Om elk kind veilig te laten spelen, te laten groeien en om vrienden voor het leven te maken.</p>
+			<a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="button"><i class="fa-solid fa-hand-holding-heart"></i>Doe een gift</a>
+		</div>
 
-          </div>            
-        </div>
-      </div>
-      <div id="crowd-grid">
-        <div id="crowd-col1">
-          <p><strong>Dit is Chiro Lourdes:</strong> één grote familie voor ‘t leven. Een familie waar je leert samenwerken, verantwoordelijkheid nemen, jezelf leert kennen. Een plek waar je voluit jezelf kan zijn, elke zondag opnieuw. Voor élk kind.
-          </p> 
-          <p>
-            <strong>En dat kan niet meer zonder een nieuw gebouw.</strong> We groeien jaar na jaar. 
-            Van 70 leden in het begin tot over de 200 nu. Onze pinkels, speelclubs, kwiks, tippers, tip-10’s en aspi’s verdienen hun plekje. Help jij ze mee? Doe nu je gift en draag letterlijk je steentje bij.
-          </p>
-          <p>
-            <strong>Een gift vanaf 40 euro geeft je trouwens recht op een fiscaal voordeel.</strong> Je krijgt 45% van je gift terug met een belastingvermindering. Je krijgt hiervoor automatisch een fiscaal attest. Bij een gift van 60 euro krijg je dus 27 euro terug. Bij een gift van 100 euro is dat zelfs 45 euro.
-            <blockquote>
-              “Zonder Chiro Lourdes was ik nooit de persoon geworden die ik vandaag ben. Ik kan nooit teruggeven wat Chiro mij gaf, maar ik wil er wel alles aan doen om dit project te doen slagen voor elk kind dat nog van deze fantastische groep kan genieten”, zegt Gerda, gestart bij de Speelclub in 1967. 
-            </blockquote>
-          </p>
-          <p>
-            <strong>Om onze nieuwe lokalen te bouwen hebben we giften nodig.</strong> Véél giften. Want als we 50.000 euro inzamelen, doet Stad Gent dat bedrag maal drie in subsidies. Hoe meer we inzamelen, hoe meer subsidies dus. Dan kunnen we beginnen bouwen. Onze droom: de plek die Ria creëerde vereeuwigen. 
-          </p>
-          <p>
-            <strong>Ria startte Chiro Lourdes 65 jaar geleden!</strong>
-            <blockquote>
-              Hoofdleidsters Lies en Sarah: Vandaag is ze nog altijd een tweede grootmoeder voor elk van ons, ze kent ook elk van de 200 leden bij naam, doe haar dat maar eens na. Niemand die je zo welkom kan doen voelen”
-            </blockquote>
-            <blockquote>
-              Ria is in mei dit jaar 80 jaar. Ze zegt altijd ‘als ik de Lotto win, geef ik jullie lokalen’, Hoe schoon zou het zijn als wij haar dat kunnen geven?
-            </blockquote>
-          </p>
-        </div>
-        <div id="crowd-col2">
-          <h2>Donaties overzicht</h2>
-          <table id="total-data-table">
-            <thead>
-              <tr>
-                <th>Wie</th>
-                <th>Bedrag</th>
-                <th>Donaties</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Data will be inserted here -->
-            </tbody>
-          </table> 
-          <br> 
-          <h2>Deze mensen gaven al iets</h2>
-          <table id="data-table">
-            <thead>
-              <tr>
-                <th>Wie</th>
-                <th>Bedrag</th>
-                <th>Datum</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Data will be inserted here -->
-            </tbody>
-          </table>  
-        </div>
-      </div>
-      <p>
-        Je gift betekent heel erg veel voor onze Chiro. Bedankt. Je kan ons verhaal ook altijd delen en verder vertellen.
-        <blockquote>
-          Een gift vanaf €40 geeft je trouwens recht op een fiscaal voordeel. Je krijgt 45% van je gift terug door middel van een belastingsvermindering. Je zal hiervoor automatisch een fiscaal attest ontvangen.
-        </blockquote>
-        Storten kan ook via BE87 0689 5068 4394 met vermelding van gift OM/1202. Je gift komt vanzelf bij ons terecht. Voor giften vanaf 40 euro krijg je ook voor deze giften 45% terug via een belastingvermindering.
-      </p>       
-      <div class="a2a_kit a2a_kit_size_24 a2a_default_style" data-a2a-url="https://crowdfunding.chirolourdes.be" data-a2a-title="Chiro Lourdes Crowdfunding">
-        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-        <a class="a2a_button_facebook"></a>
-        <a class="a2a_button_email"></a>
-        <a class="a2a_button_sms"></a>
-        <a class="a2a_button_whatsapp"></a>
-        <a class="a2a_button_facebook_messenger"></a>
-        <a class="a2a_button_x"></a>
-      </div>
-      <script>
-        // add2anything scripting
-        var a2a_config = a2a_config || {};
-        a2a_config.templates = a2a_config.templates || {};     
-        a2a_config.templates.email = {
-            subject: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title}",
-            body: "Hier is de link:\n${link}",
-        };
-        a2a_config.templates.facebook = {
-            app_id: "5303202981",
-            redirect_uri: "https://static.addtoany.com/menu/thanks.html",
-        };
-        a2a_config.templates.sms = {
-            body: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title} ${link}",
-        };
-        a2a_config.templates.whatsapp = {
-            text: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${link}",
-        };
-        a2a_config.templates.x = {
-            text: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title} ${link}",
-        };
-      </script>
-      <script async src="https://static.addtoany.com/menu/page.js"></script>              
-      <p>Met al je vragen kan je terecht op dit <a href="mailto:vzwmeisjeschiroheemlourdes@gmail.com?subject=ChiroLourdes-Crowdfunding">email adress</a>.</p>
-    </div>
-    <div id="col3"></div>
-  </div>
-  <script type="module">
-    import { fetchAllData, totalAmountCollected } from './js/transactions.js';
+		<div class="relative steun-girl-image-container">
+			<img class="w-full h-auto bg-cover" src="images/steun-girl-pointing.png"/>
+			<div class="absolute right-[9%] bottom-[35%] text-xl sm:text-2xl font-bold steun-girl-image-overlay">&nbsp;0%</div>
+		</div>
+	</header>
 
-    const totalCrowdfundingGoal = 50000;
-    const allData = await fetchAllData();
-    // console.log(allData);
+	<!-- CONTENT -->
+	<main class="max-w-[1280px] mx-auto px-4">
+		<!-- PROGRESS -->
+		<div class="flex items-center flex-col gap-6 py-10 md:py-16">
+			<h2 class="md:text-center text-4xl">Doe nu mee met de crowdfunding</h2>
+			<p class="max-w-[876px] mb-8 md:text-center">We groeien jaar na jaar. Van 70 leden in het begin tot over de 200 nu. Onze pinkels, speelclubs, kwiks, tippers, tip-10’s en aspi’s verdienen hun plekje. Help jij ze mee? Doe nu je gift en draag letterlijk je steentje bij.</p>
+			
+			<div class="flex flex-col md:grid md:grid-cols-2 grid-rows-3 gap-4 md:gap-6 w-full">
+				<div class="max-md:hidden flex flex-col gap-4 w-full col-span-1 md:row-span-3 bg-[#CBEAF4] rounded-[20px] p-5 sm:p-8">
+					<h3 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Donaties</span><br> in de Spotlights*</h3>
+					
+					<div class="overflow-x-scroll max-h-[610px]">
+						<table id="data-table">
+							<thead class="sticky top-0 bg-[#CBEAF4]">
+								<tr class="text-[#6DB9D1]">
+									<th>Wie</th>
+									<th>Bedrag</th>
+									<th>Datum</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Data will be inserted here -->
+							</tbody>
+						</table>  
+					</div>
 
-    // display all donations
-    const tableBody = document.querySelector('#data-table tbody');
-    allData.merged.forEach(donatie => {
-      const row = tableBody.insertRow();
-      if (donatie[3] === "P") {
-        row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
-      } else {
-        row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
-      }
-      row.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + donatie[1];
-      row.insertCell(2).textContent = donatie[2];
-    }); 
-    
-    const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
-    const totalPersonen = allData.crowdfunding.contributionsCount;
-    const totalAmountPersonen = allData.crowdfunding.currentAmount / 100;
-    const totalProgress = Math.round((totalAmountBedrijven + totalAmountPersonen) / totalCrowdfundingGoal * 100);
+					<span class="text-[#6DB9D1]">* Deze lijst wordt elke avond aangepast</span>
+				</div>
 
-    // visualise 
-    const steunGirlTableBody = document.querySelector('#steun-girl-table tbody');
-    const steunRow1 = steunGirlTableBody.insertRow();
-    steunRow1.insertCell(0).innerHTML = "€" + (totalAmountBedrijven + totalAmountPersonen);
-    steunRow1.insertCell(1).innerHTML = totalPersonen + totalBedrijven;
-    steunRow1.insertCell(2).innerHTML = totalProgress + "%";
-    steunRow1.id = "steun-girl-table-row1";
-    const steunRow2 = steunGirlTableBody.insertRow();
-    steunRow2.insertCell(0).innerHTML = "ingezameld van de €50000";
-    steunRow2.insertCell(1).innerHTML = "donateurs";
-    steunRow2.insertCell(2).innerHTML = "al opgehaald";
-    steunRow2.id = "steun-girl-table-row2";
+				<div class="col-span-1 md:row-span-2 bg-[#F9F1E7] rounded-[20px] overflow-hidden">
+					<div class="flex flex-col gap-4 items-start p-5 sm:p-8 h-full">
+						<div class="flex flex-wrap justify-between gap-4 mb-auto" id="steun-girl-table">
+							<div class="steun-girl-number">
+								<div class="steun-girl-cell" id="steun-girl-cell-1">€0</div>
+								<p class="steun-girl-text">ingezameld van de €50.000</p>
+							</div>
 
-    const totalTableBody = document.querySelector('#total-data-table tbody');
-    const row1 = totalTableBody.insertRow();
-    row1.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> Personen';
-    row1.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + totalAmountPersonen;
-    row1.insertCell(2).textContent = totalPersonen;
-    const row2 = totalTableBody.insertRow();
-    row2.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> Bedrijven';
-    row2.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + totalAmountBedrijven;
-    row2.insertCell(2).textContent = totalBedrijven;
+							<div class="steun-girl-number">
+								<div class="steun-girl-cell" id="steun-girl-cell-2">0</div>
+								<p class="steun-girl-text">donateurs</p>
+							</div>
 
-    // progress
-    const progress = document.querySelector('.progress');
-    const progressText = document.querySelector('.progress-text');
-    const imageOverlay = document.querySelector('.steun-girl-image-overlay');
-    if (totalProgress > 100) {
-      progress.style.width = '100%';
-      progressText.innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen - 50000)  + " extra. Waaw!"
-      progressText.style.color = 'white';
-      // progressText.style.textWeight = 'bold';
-      progressText.style.setProperty("font-weight", "bold");
-    } else {
-      progress.style.width = totalProgress + '%';
-      progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen)  + " ingezameld!"
-    }
-    imageOverlay.innerHTML = totalProgress + '%';  
-  </script>
+							<div class="steun-girl-number mb-auto">
+								<div class="steun-girl-cell" id="steun-girl-cell-3">0%</div>
+								<p class="steun-girl-text">al opgehaald</p>
+							</div>
+						</div>
+						
+						<p>Help ons starten met de bouw. Elke gift is waardevol. Bedankt.</p>
+						
+						<ul id="doe-een-gift-table" class="flex flex-col gap-1">
+							<li><span class="circle-label">€60</span> en je schenkt een bouwsteen (€33 na belastingaftrek)</li>
+							<li><span class="circle-label">€100</span> dan krijgt je naam een plekje in het nieuw gebouw (€55 na belastingaftrek)</li>
+							<li><span class="circle-label">€250</span> en krijg een Ria-cake aan huis geleverd (€137,5 na belastingaftrek)</li>
+						</ul>
 
+						<div class="progress-bar">
+							<div class="progress"></div>
+							<div class="progress-text"></div>            
+						</div>
+
+						<a href="https://chirojeugdvlaanderen.koalect.com/nl-NL/p/chiro-lourdes-meisjes-bouwt" target="_blank" class="button"><i class="fa-solid fa-hand-holding-heart"></i> Doneer Nu</a>
+					</div>
+				</div>
+
+				<div class="max-md:hidden flex flex-col justify-between gap-4 col-span-1 row-span-1 bg-[#750201] rounded-[20px] p-5 md:p-8">
+					<h3 class="text-white text-4xl"><span class="text-[#CF4D4C]">Algemeen</span><br> overzicht</h3>
+					<div class="overflow-x-scroll">
+						<table id="total-data-table" class="table-auto">
+							<thead class="text-[#CF4D4C] capitalize">
+								<tr>
+									<th>Wie</th>
+									<th>Bedrag</th>
+									<th>Donaties</th>
+								</tr>
+							</thead>
+							<tbody class="text-white">
+								<!-- Data will be inserted here -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- DIT IS CHIRO LOURDES -->
+		<div class="max-w-[768px] mx-auto py-10 md:py-16">
+			<div class="flex flex-col gap-4">
+				<h2 class="text-4xl">Dit is Chiro Lourdes</h2>
+				<p>Één grote familie voor ‘t leven. Een familie waar je leert samenwerken, verantwoordelijkheid nemen, jezelf leert kennen. Een plek waar je voluit jezelf kan zijn, elke zondag opnieuw. Voor élk kind.</p>
+				<div>
+					<h3>En dat kan niet meer zonder een nieuw gebouw.</h3>
+					<p>
+						We groeien jaar na jaar. Van 70 leden in het begin tot over de 200 nu. Onze pinkels, speelclubs, kwiks, tippers, tip-10’s en aspi’s verdienen hun plekje. Help jij ze mee? Doe nu je gift en draag letterlijk je steentje bij.
+					</p>
+				</div>
+				<div>
+					<h3>Een gift vanaf 40 euro geeft je trouwens recht op een fiscaal voordeel.</h3>
+					<p>
+						Je krijgt 45% van je gift terug met een belastingvermindering. Je krijgt hiervoor automatisch een fiscaal attest. Bij een gift van 60 euro krijg je dus 27 euro terug. Bij een gift van 100 euro is dat zelfs 45 euro.
+					</p>
+					<blockquote>
+						<mark>“Zonder Chiro Lourdes was ik nooit de persoon geworden die ik vandaag ben. Ik kan nooit teruggeven wat Chiro mij gaf, maar ik wil er wel alles aan doen om dit project te doen slagen voor elk kind dat nog van deze fantastische groep kan genieten”, zegt Gerda, gestart bij de Speelclub in 1967. </mark>
+					</blockquote>
+				</div>
+				<div>
+					<h3>Om onze nieuwe lokalen te bouwen hebben we giften nodig.</h3>
+					<p>
+						Véél giften. Want als we 50.000 euro inzamelen, doet Stad Gent dat bedrag maal drie in subsidies. Hoe meer we inzamelen, hoe meer subsidies dus. Dan kunnen we beginnen bouwen. Onze droom: de plek die Ria creëerde vereeuwigen.
+					</p>
+				</div>
+				<div>
+					<h3>Ria startte Chiro Lourdes 65 jaar geleden!</h3>
+					<blockquote>
+						<mark>Hoofdleidsters Lies en Sarah: Vandaag is ze nog altijd een tweede grootmoeder voor elk van ons, ze kent ook elk van de 200 leden bij naam, doe haar dat maar eens na. Niemand die je zo welkom kan doen voelen”</mark>
+					</blockquote>
+					<blockquote>
+						<mark>Ria is in mei dit jaar 80 jaar. Ze zegt altijd ‘als ik de Lotto win, geef ik jullie lokalen’, Hoe schoon zou het zijn als wij haar dat kunnen geven?</mark>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+
+		<!-- Only on mobile -->
+		<div class="md:hidden py-10">
+			<div class="flex flex-col gap-4 w-full col-span-1 bg-[#CBEAF4] rounded-[20px] p-5 sm:p-8 mb-4">
+				<h3 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Donaties</span><br> in de Spotlights*</h3>
+				
+				<div class="overflow-x-scroll max-h-[610px]">
+					<table id="data-table">
+						<thead class="sticky top-0 bg-[#CBEAF4]">
+							<tr class="text-[#6DB9D1]">
+								<th>Wie</th>
+								<th>Bedrag</th>
+								<th>Datum</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- Data will be inserted here -->
+						</tbody>
+					</table>  
+				</div>
+	
+				<span class="text-[#6DB9D1]">* Deze lijst wordt elke avond aangepast</span>
+			</div>
+			<div class="flex flex-col justify-between gap-4 col-span-1 row-span-1 bg-[#750201] rounded-[20px] p-5">
+				<h3 class="text-white text-4xl"><span class="text-[#CF4D4C]">Algemeen</span><br> overzicht</h3>
+				<div class="overflow-x-scroll">
+					<table id="total-data-table" class="table-auto">
+						<thead class="text-[#CF4D4C] capitalize">
+							<tr>
+								<th>Wie</th>
+								<th>Bedrag</th>
+								<th>Donaties</th>
+							</tr>
+						</thead>
+						<tbody class="text-white">
+							<!-- Data will be inserted here -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<section class="bg-[#F9F1E7]">
+		<div class="flex flex-col gap-4 max-w-[1280px] mx-auto px-4 py-10 md:py-16">
+			<h2 class="text-[#082669] text-4xl"><span class="text-[#6DB9D1]">Bedankt.</span><br> Je gift betekent heel erg veel voor onze Chiro.</h2>
+			<p>
+				Je kan ons verhaal ook altijd delen en verder vertellen.
+				Een gift vanaf €40 geeft je trouwens recht op een fiscaal voordeel. Je krijgt 45% van je gift terug door middel van een belastingsvermindering. Je zal hiervoor automatisch een fiscaal attest ontvangen.
+			</p>
+			<p>
+				Storten kan ook via <strong>BE87 0689 5068 4394</strong> met vermelding van gift <strong></strong>. Je gift komt vanzelf bij ons terecht. Voor giften vanaf 40 euro krijg je ook voor deze giften 45% terug via een belastingvermindering.
+			</p>
+			<div class="a2a_kit a2a_kit_size_24 a2a_default_style" data-a2a-url="https://crowdfunding.chirolourdes.be" data-a2a-title="Chiro Lourdes Crowdfunding">
+				<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+				<a class="a2a_button_facebook"></a>
+				<a class="a2a_button_email"></a>
+				<a class="a2a_button_sms"></a>
+				<a class="a2a_button_whatsapp"></a>
+				<a class="a2a_button_facebook_messenger"></a>
+				<a class="a2a_button_x"></a>
+			</div>
+			<p>Met al je vragen kan je terecht op dit <a class="underline" href="mailto:vzwmeisjeschiroheemlourdes@gmail.com?subject=ChiroLourdes-Crowdfunding">e-mailadres</a>.</p>
+		</div>
+	</section>
+
+	<!-- JS -->
+	<script>
+		// add2anything scripting
+		var a2a_config = a2a_config || {};
+		a2a_config.templates = a2a_config.templates || {};     
+		a2a_config.templates.email = {
+				subject: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title}",
+				body: "Hier is de link:\n${link}",
+		};
+		a2a_config.templates.facebook = {
+				app_id: "5303202981",
+				redirect_uri: "https://static.addtoany.com/menu/thanks.html",
+		};
+		a2a_config.templates.sms = {
+				body: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title} ${link}",
+		};
+		a2a_config.templates.whatsapp = {
+				text: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${link}",
+		};
+		a2a_config.templates.x = {
+				text: "Ik heb net het Chiro Lourdes Bouwproject gesteund, nu jij nog: ${title} ${link}",
+		};
+	</script>
+	<script async src="https://static.addtoany.com/menu/page.js"></script>
+	<script type="module">
+		import { fetchAllData, totalAmountCollected } from './js/transactions.js';
+
+		const totalCrowdfundingGoal = 50000;
+		const allData = await fetchAllData();
+		// console.log(allData);
+
+		// display all donations
+		const tableBodies = document.querySelectorAll('#data-table tbody');
+		allData.merged.forEach((donatie, index) => {
+			const row = tableBodies[index % tableBodies.length].insertRow();
+			if (donatie[3] === "P") {
+			row.insertCell(0).innerHTML = '<i class="fa-solid fa-person"></i> ' + donatie[0];
+			} else {
+			row.insertCell(0).innerHTML = '<i class="fa-solid fa-industry"></i> ' + donatie[0];
+			}
+			row.insertCell(1).innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + donatie[1];
+			row.insertCell(2).textContent = donatie[2];
+		});
+		
+		const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
+		const totalPersonen = allData.crowdfunding.contributionsCount;
+		const totalAmountPersonen = allData.crowdfunding.currentAmount / 100;
+		const totalProgress = Math.round((totalAmountBedrijven + totalAmountPersonen) / totalCrowdfundingGoal * 100);
+
+		// visualise 
+		const steunGirlTableBody = document.querySelector('#steun-girl-table');
+		document.querySelector("#steun-girl-cell-1").innerHTML = "€" + (totalAmountBedrijven + totalAmountPersonen);
+		document.querySelector("#steun-girl-cell-2").innerHTML = totalPersonen + totalBedrijven;
+		document.querySelector("#steun-girl-cell-3").innerHTML = totalProgress + "%";
+
+		const totalTableBodies = document.querySelectorAll('#total-data-table tbody');
+		// Create a function to create a table row with cells
+		function createRow(iconClass, title, amount, count, index) {
+			const tableBody = totalTableBodies[index];
+			const row = tableBody.insertRow();
+			row.insertCell(0).innerHTML = `<i class="fa-solid ${iconClass}"></i> ${title}`;
+			row.insertCell(1).innerHTML = `<i class="fa-solid fa-euro-sign"></i> ${amount}`;
+			row.insertCell(2).textContent = count;
+			return row;
+		}
+		createRow('fa-person', 'Personen', totalAmountPersonen, totalPersonen, 0);
+		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven, 0);
+		createRow('fa-person', 'Personen', totalAmountPersonen, totalPersonen, 1);
+		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven, 1);
+
+		// progress
+		const progress = document.querySelector('.progress');
+		const progressText = document.querySelector('.progress-text');
+		const imageOverlay = document.querySelector('.steun-girl-image-overlay');
+		if (totalProgress > 100) {
+			progress.style.width = '100%';
+			progressText.innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen - 50000)  + " extra. Waaw!"
+			progressText.style.color = 'white';
+		} else {
+			progress.style.width = totalProgress + '%';
+			progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen)  + " ingezameld!"
+		}
+		imageOverlay.innerHTML = totalProgress + '%';  
+	</script>
 </body>
 </html>

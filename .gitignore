@@ -1,2 +1,3 @@
 !.gitignore
 photoshop/
+/node_modules
