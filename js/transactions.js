@@ -12,6 +12,26 @@ async function transactionData(groupName) {
     return sheetJson.values;
 }
 
+async function transactionDataWithRetry(groupName, maxRetries = 5, delay = 1000) {
+    for (let i = 0; i < maxRetries; i++) {
+        try {
+            const sheetData = await fetch('https://sheets.googleapis.com/v4/spreadsheets/1ItisRtpvDkF2m0yXG-8u-yF6D1hokvRBNmFIDbcOvL0/values/' + 
+                                    groupName + 
+                                    '!A2:C2000' + 
+                                    '?key=AIzaSyAVzI5xq3pz2P-O1u6MUIK4ZJVvBQmedHQ');
+            const sheetJson =  await sheetData.json();
+            if (sheetJson.values === undefined) {
+                throw new Error('No values in response');
+            }
+            return sheetJson.values;
+        } catch (error) {
+            console.error(`Attempt ${i + 1} failed. Retrying in ${delay}ms...`);
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+    }
+    throw new Error('Max retries reached. Request failed.');
+}
+
 async function crowdfundingData(slug) {
     var dataQueryStructure = 
     `query ListForms {
@@ -44,8 +64,8 @@ async function crowdfundingData(slug) {
 }
 
 async function fetchAllData() {
-    const bedrijvenData = await transactionData("bedrijven");
-    const personenData = await transactionData("personen");
+    const bedrijvenData = await transactionDataWithRetry("bedrijven");
+    const personenData = await transactionDataWithRetry("personen");
     // const koalectData = await crowdfundingData("test-optin-sms-edge");
     const koalectData = await crowdfundingData("chiro-lourdes-meisjes-bouwt");
     const newBedrijven = bedrijvenData.filter(item => validItem(item)).map(item => [item[0], item[1], item[2], "B"])
