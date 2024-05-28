@@ -87,8 +87,6 @@
 				<img src="images/article-003-thumb.png" width="35%" alt="Interview op Radio 2" class="thumbnail" onclick="openNewWindow('https://radio2.be/luister/select/radio2-middag-in-oost-vlaanderen/ria-80-uit-oostakker-is-al-65-jaar-bij-chiro-lourdes')">
 				<img src="images/article-001-thumb.png" width="35%" alt="Ik blijf komen tot ze die oude doos niet meer willen" class="thumbnail" onclick="openModal('images/article-001.png')">
 				<img src="images/article-002-thumb.png" width="35%" alt="80 en nog elke week naar de Chiro" class="thumbnail" onclick="openModal('images/article-002.png')">
-				<!-- <img src="thumbnail2.jpg" alt="Thumbnail 2" class="thumbnail" onclick="openModal('fullimage2.jpg')"> -->
-				<!-- Add more thumbnails as needed -->
 			</div>
 			<div id="myModal" class="modal">
 				<span class="close" onclick="closeModal()">&times;</span>
@@ -328,7 +326,7 @@
 		const [ totalBedrijven, totalAmountBedrijven ]  = totalAmountCollected(allData.bedrijven);
 		const totalPersonen = allData.crowdfunding.contributionsCount;
 		const totalAmountPersonen = allData.crowdfunding.currentAmount / 100;
-		const totalProgress = Math.round((totalAmountBedrijven + totalAmountPersonen) / totalCrowdfundingGoal * 100);
+		const totalProgress = Math.trunc((totalAmountBedrijven + totalAmountPersonen) / totalCrowdfundingGoal * 100);
 
 		// visualise 
 		const steunGirlTableBody = document.querySelector('#steun-girl-table');
@@ -361,7 +359,11 @@
 			progressText.style.color = 'white';
 		} else {
 			progress.style.width = totalProgress + '%';
-			progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen)  + " ingezameld!"
+			progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + 
+			totalAmountPersonen)  + " ingezameld!"
+			progressText.style.color = 'white';
+			progressText.style.fontWeight = 'bold';
+			imageOverlay.style.right = "4%"
 		}
 		imageOverlay.innerHTML = totalProgress + '%';  
 	</script>

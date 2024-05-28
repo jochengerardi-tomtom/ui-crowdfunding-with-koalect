@@ -142,6 +142,10 @@ mark {
   gap: 20px; /* adjust this value to your liking */
 }
 
+.thumbnail {
+  max-width: 30%; /* adjust this value to your liking */
+}
+
 .modal {
   display: none;
   position: fixed;
