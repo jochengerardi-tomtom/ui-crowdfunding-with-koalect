@@ -72,6 +72,27 @@ td {
   transition: width 0.3s ease;
 }
 
+/* .progress-bar {
+  display: flex;
+  height: 36px;
+  width: 100%;
+  background-color: antiquewhite;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.goal-progress {
+  width: 100%; /* adjust this value based on the actual progress towards the goal * /
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.extra-progress {
+  width: 0; /* adjust this value based on the extra progress * /
+  background-color: #2196f3;
+  transition: width 0.3s ease;
+} */
+
 .progress-text {
   width: 100%;
   text-align: center;

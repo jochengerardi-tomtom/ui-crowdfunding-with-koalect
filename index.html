@@ -46,53 +46,6 @@
 		<div class="flex items-center flex-col gap-6 py-10 md:py-16">
 			<h2 class="md:text-center text-4xl">Doe nu mee met de crowdfunding</h2>
 			<p class="max-w-[876px] mb-8 md:text-center">We groeien jaar na jaar. Van 70 leden in het begin tot over de 200 nu. Onze pinkels, speelclubs, kwiks, tippers, tip-10’s en aspi’s verdienen hun plekje. Help jij ze mee? Doe nu je gift en draag letterlijk je steentje bij.</p>
-			
-			<h2 class="md:text-center text-4xl">In het nieuws</h2>
-			<script type="module">
-				function openModal(imageUrl) {
-					var modal = document.getElementById('myModal');
-					var modalImg = document.getElementById('modalImage');
-					var img = new Image();
-					img.onload = function() {
-					modal.style.display = "block";
-					var maxWidth = window.innerWidth * 0.8; // 80% of window width
-					var maxHeight = window.innerHeight * 0.8; // 80% of window height
-					var widthRatio = maxWidth / img.width;
-					var heightRatio = maxHeight / img.height;
-					var scale = Math.min(widthRatio, heightRatio);
-					modalImg.style.width = img.width * scale + 'px';
-					modalImg.style.height = img.height * scale + 'px';
-					modalImg.src = imageUrl;
-					};
-					img.src = imageUrl;
-				}
-
-				function closeModal() {
-					var modal = document.getElementById('myModal');
-					var modalImg = document.getElementById('modalImage');
-					modal.style.display = "none";
-					modalImg.src = '';
-				}
-
-				function openNewWindow(url) {
-					window.open(url, '_blank');
-				}
-
-				window.openModal = openModal;
-				window.closeModal = closeModal;
-				window.openNewWindow = openNewWindow;
-			</script>
-
-			<div class="gallery">
-				<img src="images/article-003-thumb.png" width="35%" alt="Interview op Radio 2" class="thumbnail" onclick="openNewWindow('https://radio2.be/luister/select/radio2-middag-in-oost-vlaanderen/ria-80-uit-oostakker-is-al-65-jaar-bij-chiro-lourdes')">
-				<img src="images/article-001-thumb.png" width="35%" alt="Ik blijf komen tot ze die oude doos niet meer willen" class="thumbnail" onclick="openModal('images/article-001.png')">
-				<img src="images/article-002-thumb.png" width="35%" alt="80 en nog elke week naar de Chiro" class="thumbnail" onclick="openModal('images/article-002.png')">
-			</div>
-			<div id="myModal" class="modal">
-				<span class="close" onclick="closeModal()">&times;</span>
-				<img class="modal-content" id="modalImage">
-			</div>
-
 
 			<div class="flex flex-col md:grid md:grid-cols-2 grid-rows-2 gap-4 md:gap-6 w-full">
 				<div class="max-md:hidden flex flex-col gap-4 w-full col-span-1 md:row-span-3 bg-[#CBEAF4] rounded-[20px] p-5 sm:p-8">
@@ -208,6 +161,53 @@
 					<div class="border bg-[#E7F4F9] border-[#CBEAF4] rounded-md px-4 py-3 mt-4">
 						<a href="https://radio2.be/luister/select/radio2-middag-in-oost-vlaanderen/ria-80-uit-oostakker-is-al-65-jaar-bij-chiro-lourdes" target="_blank" class="font-bold text-[#092669]"><i class="fa-solid fa-volume-high"></i>&nbsp Beluister Ria's interview op radio2</a>
 					</div>
+					<br>
+					<!-- <h2 class="md:text-center text-4xl">In het nieuws</h2> -->
+					<script type="module">
+						function openModal(imageUrl) {
+							var modal = document.getElementById('myModal');
+							var modalImg = document.getElementById('modalImage');
+							var img = new Image();
+							img.onload = function() {
+							modal.style.display = "block";
+							var maxWidth = window.innerWidth * 0.8; // 80% of window width
+							var maxHeight = window.innerHeight * 0.8; // 80% of window height
+							var widthRatio = maxWidth / img.width;
+							var heightRatio = maxHeight / img.height;
+							var scale = Math.min(widthRatio, heightRatio);
+							modalImg.style.width = img.width * scale + 'px';
+							modalImg.style.height = img.height * scale + 'px';
+							modalImg.src = imageUrl;
+							};
+							img.src = imageUrl;
+						}
+		
+						function closeModal() {
+							var modal = document.getElementById('myModal');
+							var modalImg = document.getElementById('modalImage');
+							modal.style.display = "none";
+							modalImg.src = '';
+						}
+		
+						function openNewWindow(url) {
+							window.open(url, '_blank');
+						}
+		
+						window.openModal = openModal;
+						window.closeModal = closeModal;
+						window.openNewWindow = openNewWindow;
+					</script>
+		
+					<div class="gallery">
+						<img src="images/article-003-thumb.png" width="35%" alt="Interview op Radio 2" class="thumbnail" onclick="openNewWindow('https://radio2.be/luister/select/radio2-middag-in-oost-vlaanderen/ria-80-uit-oostakker-is-al-65-jaar-bij-chiro-lourdes')">
+						<img src="images/article-001-thumb.png" width="35%" alt="Ik blijf komen tot ze die oude doos niet meer willen" class="thumbnail" onclick="openModal('images/article-001.png')">
+						<img src="images/article-002-thumb.png" width="35%" alt="80 en nog elke week naar de Chiro" class="thumbnail" onclick="openModal('images/article-002.png')">
+					</div>
+					<div id="myModal" class="modal">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<img class="modal-content" id="modalImage">
+					</div>
+		
 				</div>
 			</div>
 		</div>
@@ -350,20 +350,23 @@
 		createRow('fa-industry', 'Bedrijven', totalAmountBedrijven, totalBedrijven, 1);
 
 		// progress
+		const progressBar = document.querySelector('.progress-bar');
 		const progress = document.querySelector('.progress');
 		const progressText = document.querySelector('.progress-text');
 		const imageOverlay = document.querySelector('.steun-girl-image-overlay');
-		if (totalProgress > 100) {
-			progress.style.width = '100%';
-			progressText.innerHTML = '<i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen - 50000)  + " extra. Waaw!"
+		progressText.style.fontWeight = 'bold';
+		if (totalProgress >= 100) {
+			const totalProgress2 = Math.trunc(totalCrowdfundingGoal / (totalAmountBedrijven + totalAmountPersonen) * 100);
+			progress.style.width = totalProgress2 + '%';
+			progressBar.style.backgroundColor = '#268600';
+			progressText.innerHTML = 'Reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + totalAmountPersonen - 50000)  + " extra opgehaald. Fantastisch!"
 			progressText.style.color = 'white';
+			imageOverlay.style.right = "4%"
 		} else {
 			progress.style.width = totalProgress + '%';
 			progressText.innerHTML = 'reeds <i class="fa-solid fa-euro-sign"></i>' + (totalAmountBedrijven + 
 			totalAmountPersonen)  + " ingezameld!"
 			progressText.style.color = 'white';
-			progressText.style.fontWeight = 'bold';
-			imageOverlay.style.right = "4%"
 		}
 		imageOverlay.innerHTML = totalProgress + '%';  
 	</script>
